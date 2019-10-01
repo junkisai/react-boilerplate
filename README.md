@@ -25,3 +25,5 @@ React Webアプリ（クライアントサイド）用のボイラープレー�
   - reducerごとにAction, ActionCreator, Reducerを管理（[Ducks](https://qiita.com/uryyyyyyy/items/a88f37b76fe434c62bac)のデザインパターン）
 - utils
   - 便利メソッド群
+
+※ 個人でつくるサービスの規模感的にこの構成でいいでしょうという判断
