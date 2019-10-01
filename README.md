@@ -20,7 +20,7 @@ React Webアプリ（クライアントサイド）用のボイラープレー�
   - ページごとのコンポーネント（Class Component）
   - redux storeから値をもらったり、dispatchするのはここ
 - components
-  - app, pages以外のコンポーネント
+  - app, pages以外のコンポーネント（React Hooks推奨）
 - modules
   - reducerごとにAction, ActionCreator, Reducerを管理（[Ducks](https://qiita.com/uryyyyyyy/items/a88f37b76fe434c62bac)のデザインパターン）
 - utils
