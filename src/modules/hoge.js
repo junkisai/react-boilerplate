@@ -4,33 +4,32 @@ const GET_HOGE = 'get_hoge';
 // initial state
 const initialState = {
   hoge: 'hogehoge',
-  huga: 'hugahuga',
+  huga: 'hugahuga'
 };
 
 // reducer
 export default function reducer(state = initialState, action) {
-  switch(action.type) {
-    case GET_HOGE:
+  switch (action.type) {
+    case GET_HOGE: {
       const { hoge } = action.payload;
       return {
         ...state,
-        hoge,
+        hoge
       };
+    }
     default:
       return state;
   }
 }
 
 // action creator
-const getHoge = hoge => {
+const getHogeCreator = hoge => {
   return {
     type: GET_HOGE,
     payload: {
-      hoge,
-    },
+      hoge
+    }
   };
 };
 
-export {
-  getHoge,
-};
+export { getHogeCreator };

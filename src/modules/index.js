@@ -3,9 +3,10 @@ import { combineReducers } from 'redux';
 
 import hogeReducer from './hoge';
 
-const createRootReducer = history => combineReducers({
-  router: connectRouter(history),
-  hoge: hogeReducer,
-});
+const createRootReducer = history =>
+  combineReducers({
+    router: connectRouter(history),
+    hoge: hogeReducer
+  });
 
 export default createRootReducer;

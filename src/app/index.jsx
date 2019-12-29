@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import configureStore, { history } from '../configureStore'; 
+import configureStore, { history } from '../configureStore';
 import TopContainer from '../pages/TopContainer';
 
 const store = configureStore();
@@ -28,5 +28,5 @@ ReactDOM.render(
     </Provider>
     <GlobalStyle />
   </React.Fragment>,
-  document.getElementById('app'),
+  document.getElementById('app')
 );
