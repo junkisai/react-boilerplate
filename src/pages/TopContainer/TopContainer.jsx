@@ -1,31 +1,36 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-const Hoge = styled.div`
-`;
+import Hoge from '../../components/Hoge';
+import { getHogeCreator } from '../../modules/hoge';
 
-class TopContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Sample = styled.div``;
 
-  render() {
-    return(
-      <Hoge>
-        <h3>{this.props.hoge}</h3>
-        <button onClick={this.props.pushClicked}>hogeページへ移動</button>
-      </Hoge>
-    );
-  }
-}
+const TopContainer = () => {
+  const hoge = useSelector(state => state.hoge.hoge);
+  const dispatch = useDispatch();
+
+  const handleRedirect = () => {
+    dispatch(getHogeCreator('huga'));
+  };
+
+  return (
+    <Sample>
+      <h3>{hoge}</h3>
+      <button onClick={handleRedirect}>hogeページへ移動</button>
+      <Hoge />
+    </Sample>
+  );
+};
 
 TopContainer.propTypes = {
-  hoge: PropTypes.string,
+  hoge: PropTypes.string
 };
 
 TopContainer.defaultProps = {
-  hoge: 'hello world',
+  hoge: 'hello world'
 };
 
 export default TopContainer;
