@@ -1,48 +1,49 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: IS_PRODUCTION ? 'production' : 'development',
   entry: `${path.resolve(__dirname)}/src/app/index.jsx`,
-  output: {
-    path: `${__dirname}/dist`,
-    filename: 'bundle.js',
-    publicPath: '/'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: [/node_modules/, /dist/],
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env",
-                "@babel/react"
-              ]
-            }
-          }
-        ]
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        test: /\.jsx?$/,
+        exclude: [/node_modules/],
+        options: {
+          emitErrors: true
+        }
       },
       {
-        test: /\.(jpg|png|gif)$/,
-        loaders: 'file-loader?name=[name].[ext]'
+        loader: 'babel-loader',
+        test: /\.jsx?$/,
+        exclude: ['/node_modules/']
       }
     ]
-  }
+  },
+  resolve: {
+    extensions: ['.jsx', '.js']
+  },
+  output: {
+    filename: 'js/bundle.js',
+    path: path.resolve(__dirname, 'build')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: `${path.resolve(__dirname)}/dist/index.html`
+    })
+  ]
 };
 
 if (!IS_PRODUCTION) {
   module.exports.devtool = 'source-map';
   module.exports.devServer = {
-    contentBase: `${__dirname}/dist`,
+    contentBase: path.resolve(__dirname, 'build'),
     compress: true,
-    port: 8000,
+    port: 8080,
     historyApiFallback: true
   };
 }
