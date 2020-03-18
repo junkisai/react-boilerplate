@@ -1,5 +1,5 @@
 {
-  "name": "fontender",
+  "name": "react-boilerplate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/junkisai/fontender.git"
+    "url": "git+https://github.com/junkisai/react-boilerplate.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/junkisai/fontender/issues"
+    "url": "https://github.com/junkisai/react-boilerplate/issues"
   },
-  "homepage": "https://github.com/junkisai/fontender#readme",
+  "homepage": "https://github.com/junkisai/react-boilerplate#readme",
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
@@ -31,6 +31,7 @@
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^3.2.0",
     "path": "^0.12.7",
     "prettier": "^1.19.1",
