@@ -10,17 +10,24 @@ module.exports = {
     rules: [
       {
         enforce: 'pre',
-        loader: 'eslint-loader',
         test: /\.jsx?$/,
+        loader: 'eslint-loader',
         exclude: [/node_modules/],
         options: {
           emitErrors: true
         }
       },
       {
-        loader: 'babel-loader',
         test: /\.jsx?$/,
+        loader: 'babel-loader',
         exclude: ['/node_modules/']
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|webp|otf|ttf)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
       }
     ]
   },
@@ -33,7 +40,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${path.resolve(__dirname)}/dist/index.html`
+      template: `${path.resolve(__dirname)}/public/index.html`
     })
   ]
 };
