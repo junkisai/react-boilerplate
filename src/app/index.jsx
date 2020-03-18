@@ -7,14 +7,12 @@ import { createGlobalStyle } from 'styled-components';
 
 import configureStore, { history } from '../configureStore';
 import TopContainer from '../pages/TopContainer';
+import reset from '../styles/reset';
 
 const store = configureStore();
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-  }
+  ${reset}
 `;
 
 ReactDOM.render(
